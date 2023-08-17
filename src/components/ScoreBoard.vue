@@ -8,7 +8,7 @@
         </p>
     </div>
     <div class="container">
-        <button class="btn" @click="resetScores">Reiniciar Marcador</button>
+        <button class="btn" @click="resetScores">Restart Game</button>
     </div>
 </template>
 

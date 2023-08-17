@@ -8,8 +8,8 @@
                 :player2Score="player2Score" :symbols="symbols" @reset="resetGame" />
             <Board v-if="gameStarted" :board="board" :makeMove="makeMove" />
             <div v-if="gameOver" class="button-container">
-                <button @click="restartGame" class="restart-button">Empezar de Nuevo</button>
-                <button v-if="showSwitchButton" @click="switchSymbols" class="switch-button">Cambiar Símbolos</button>
+                <button @click="restartGame" class="restart-button">Start Again</button>
+                <button v-if="showSwitchButton" @click="switchSymbols" class="switch-button">Change Symbols</button>
             </div>
             <div v-if="gameOutcome" class="game-outcome-message">{{ gameOutcome }}</div>
         </div>
@@ -60,11 +60,11 @@ const makeMove = (row, col) => {
 
         if (checkWin(symbols.value[currentPlayerIndex.value])) {
             // Incrementar el puntaje del jugador y mostrar el botón de cambio de símbolos
-            currentPlayerIndex.value === 0 ? player1Score.value++ : player2Score.value++;
             showSwitchButton.value = true;
             gameOver.value = true;
-            gameOutcome.value = `${players.value[currentPlayerIndex.value]} You won!`;
-            gameOver.value = true;
+            const winningPlayer = currentPlayerIndex.value === 0 ? players.value[0] : players.value[1];
+            const winningSymbol = symbols.value[currentPlayerIndex.value];
+            gameOutcome.value = `${winningPlayer} you won with the symbol ${winningSymbol}!`;
         } else if (checkDraw()) {
             // Mostrar el botón de cambio de símbolos si hay empate
             showSwitchButton.value = true;
