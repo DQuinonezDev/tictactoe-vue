@@ -1,0 +1,14 @@
+html {
+    background-color: Canvas;
+    color: CanvasText;
+    color-scheme: dark;
+    font-family: Gabarito;
+
+}
+
+@font-face {
+    font-family: "Gabarito";
+    src: url("./Fonts/Gabarito-SemiBold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
